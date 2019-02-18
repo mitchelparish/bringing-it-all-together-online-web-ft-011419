@@ -53,6 +53,10 @@ class Dog
     self.new_from_db(info)
   end
 
+  def self.find_by_name(name)
+    info = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name)[0]
+    self.new_from_db(info)
+  end 
 
 
 
